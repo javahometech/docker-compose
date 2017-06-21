@@ -1,0 +1,17 @@
+version: '2'
+services:
+  web:
+    build: .
+    ports:
+     - "5000:5000"
+    volumes:
+     - .:/code
+    networks:
+      - redis-network
+  redis:
+    image: "redis:alpine"
+    networks:
+      - redis-network
+networks:
+  redis-network:
+    driver: bridge  
