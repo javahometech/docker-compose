@@ -1,7 +1,7 @@
 version: '2'
 services:
-  python-app:
-    image: kammana/python-app:7
+  python:
+    image: kammana/python-redis:1.0
     container_name: python
     ports:
      - "8080:5000"
