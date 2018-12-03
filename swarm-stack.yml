@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  pythonapp:
+    image: kammana/python-redis:1.0
+    ports:
+      - "80:5000"
+	networks:
+	  - javahome
+	deploy:
+	  replicas: 5
+	  resources:
+	    limits:
+		  cpus: 2
+		  memory: 50MB
+		reservations:
+		  cpus: 1
+		  memory: 25MB
+	depends_on:
+	  - redis
+  redis:
+    image: redis:latest
+	deploy:
+	  replicas: 1
+	networks:
+	  - javahome
+networks:
+  javahome
