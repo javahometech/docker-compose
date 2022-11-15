@@ -3,6 +3,8 @@ services:
   python:
     image: kammana/python-redis:1
     container_name: python
+    depends_on:
+      - redis
     environment:
       - "redis_host=redis"
     ports:
